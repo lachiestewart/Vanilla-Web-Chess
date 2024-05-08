@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="Chess.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body onload="refresh_leaderboard(), page_change(home)">
+
+    <div class="sidenav">
+        <img src="images/logo.png" alt="CCC logo" onclick="page_change(home)">
+        <a href="#Home" onclick="page_change(home)">Home</a>
+        <a href="#Play" onclick="page_change(play)">Play</a>
+        <a href="#Rankings" onclick="page_change(rankings)">Rankings</a>
+        <a href="#About" onclick="page_change(about)">About</a>
+    </div>
+
+    <div id="home" class="content">
+        <h1 class="title">Notices</h1>
+        <div class="post">
+            <p class="date">24/10/2020</p>
+            <p class="info">Cashmere Chess Club will not be running this week due to Mr Quaid being ill</p>
+        </div>
+        <div class="post">
+            <p class="date">11/10/2020</p>
+            <p class="info">Please use hand sanitiser before you play a game. keep clean, keep safe!</p>
+        </div>
+        <div class="post">
+            <p class="date">28/9/2020</p>
+            <p class="info">Cashmere Chess Club will be moving to M4 for Tuesday lunchtime this week</p>
+        </div>
+        <div class="post">
+            <p class="date">14/9/2020</p>
+            <p class="info">The Cashmere Chess tournament will begin this Monday lunchtime and will be running every
+                lunchtime for this
+                week. Come to the music office by the M block courtyard to view the table</p>
+        </div>
+    </div>
+
+    <div id="play" class="content">
+        <div id="game" class="hide">
+            <!-- <button onclick="generate_setup()">Click to reset game</button> -->
+            <!-- <button onclick="toggle_board_coords()">Click to toggle board coordinates</button> -->
+            <table id="Board">
+                <tbody>
+                    <tr>
+                        <td id="0,7" onclick="on_click([0,7])" class="white_square"></td>
+                        <td id="1,7" onclick="on_click([1,7])" class="black_square"></td>
+                        <td id="2,7" onclick="on_click([2,7])" class="white_square"></td>
+                        <td id="3,7" onclick="on_click([3,7])" class="black_square"></td>
+                        <td id="4,7" onclick="on_click([4,7])" class="white_square"></td>
+                        <td id="5,7" onclick="on_click([5,7])" class="black_square"></td>
+                        <td id="6,7" onclick="on_click([6,7])" class="white_square"></td>
+                        <td id="7,7" onclick="on_click([7,7])" class="black_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,6" onclick="on_click([0,6])" class="black_square"></td>
+                        <td id="1,6" onclick="on_click([1,6])" class="white_square"></td>
+                        <td id="2,6" onclick="on_click([2,6])" class="black_square"></td>
+                        <td id="3,6" onclick="on_click([3,6])" class="white_square"></td>
+                        <td id="4,6" onclick="on_click([4,6])" class="black_square"></td>
+                        <td id="5,6" onclick="on_click([5,6])" class="white_square"></td>
+                        <td id="6,6" onclick="on_click([6,6])" class="black_square"></td>
+                        <td id="7,6" onclick="on_click([7,6])" class="white_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,5" onclick="on_click([0,5])" class="white_square"></td>
+                        <td id="1,5" onclick="on_click([1,5])" class="black_square"></td>
+                        <td id="2,5" onclick="on_click([2,5])" class="white_square"></td>
+                        <td id="3,5" onclick="on_click([3,5])" class="black_square"></td>
+                        <td id="4,5" onclick="on_click([4,5])" class="white_square"></td>
+                        <td id="5,5" onclick="on_click([5,5])" class="black_square"></td>
+                        <td id="6,5" onclick="on_click([6,5])" class="white_square"></td>
+                        <td id="7,5" onclick="on_click([7,5])" class="black_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,4" onclick="on_click([0,4])" class="black_square"></td>
+                        <td id="1,4" onclick="on_click([1,4])" class="white_square"></td>
+                        <td id="2,4" onclick="on_click([2,4])" class="black_square"></td>
+                        <td id="3,4" onclick="on_click([3,4])" class="white_square"></td>
+                        <td id="4,4" onclick="on_click([4,4])" class="black_square"></td>
+                        <td id="5,4" onclick="on_click([5,4])" class="white_square"></td>
+                        <td id="6,4" onclick="on_click([6,4])" class="black_square"></td>
+                        <td id="7,4" onclick="on_click([7,4])" class="white_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,3" onclick="on_click([0,3])" class="white_square"></td>
+                        <td id="1,3" onclick="on_click([1,3])" class="black_square"></td>
+                        <td id="2,3" onclick="on_click([2,3])" class="white_square"></td>
+                        <td id="3,3" onclick="on_click([3,3])" class="black_square"></td>
+                        <td id="4,3" onclick="on_click([4,3])" class="white_square"></td>
+                        <td id="5,3" onclick="on_click([5,3])" class="black_square"></td>
+                        <td id="6,3" onclick="on_click([6,3])" class="white_square"></td>
+                        <td id="7,3" onclick="on_click([7,3])" class="black_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,2" onclick="on_click([0,2])" class="black_square"></td>
+                        <td id="1,2" onclick="on_click([1,2])" class="white_square"></td>
+                        <td id="2,2" onclick="on_click([2,2])" class="black_square"></td>
+                        <td id="3,2" onclick="on_click([3,2])" class="white_square"></td>
+                        <td id="4,2" onclick="on_click([4,2])" class="black_square"></td>
+                        <td id="5,2" onclick="on_click([5,2])" class="white_square"></td>
+                        <td id="6,2" onclick="on_click([6,2])" class="black_square"></td>
+                        <td id="7,2" onclick="on_click([7,2])" class="white_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,1" onclick="on_click([0,1])" class="white_square"></td>
+                        <td id="1,1" onclick="on_click([1,1])" class="black_square"></td>
+                        <td id="2,1" onclick="on_click([2,1])" class="white_square"></td>
+                        <td id="3,1" onclick="on_click([3,1])" class="black_square"></td>
+                        <td id="4,1" onclick="on_click([4,1])" class="white_square"></td>
+                        <td id="5,1" onclick="on_click([5,1])" class="black_square"></td>
+                        <td id="6,1" onclick="on_click([6,1])" class="white_square"></td>
+                        <td id="7,1" onclick="on_click([7,1])" class="black_square"></td>
+                    </tr>
+                    <tr>
+                        <td id="0,0" onclick="on_click([0,0])" class="black_square"></td>
+                        <td id="1,0" onclick="on_click([1,0])" class="white_square"></td>
+                        <td id="2,0" onclick="on_click([2,0])" class="black_square"></td>
+                        <td id="3,0" onclick="on_click([3,0])" class="white_square"></td>
+                        <td id="4,0" onclick="on_click([4,0])" class="black_square"></td>
+                        <td id="5,0" onclick="on_click([5,0])" class="white_square"></td>
+                        <td id="6,0" onclick="on_click([6,0])" class="black_square"></td>
+                        <td id="7,0" onclick="on_click([7,0])" class="white_square"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="white_resign" class="resigns" onclick="game_end('white')">white resign</button>
+            <button id="black_resign" class="resigns" onclick="game_end('black')">black resign</button>
+            <button id="restart" onclick="restart()">click to start new game</button>
+            <!-- <p id="Black_score">0</p><p id="White_score">0</p> -->
+        </div>
+
+        <div id="pregame">
+            <button onclick="start_game()">Click to Start</button>
+            <div class="name_inputs">
+                <div>
+                    <label for="white_name">White Player Name</label>
+                    <div>
+                        <input id="white_name" type="text" oninput="name_search('white')" maxlength="9">
+                        <div id="white_name_drop"></div>
+                    </div>
+                </div>
+                <div>
+                    <label for="black_name">Black Player Name</label>
+                    <div>
+                        <input id="black_name" type="text" oninput="name_search('black')" maxlength="9">
+                        <div id="black_name_drop"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rankings" class="content">
+        <div class="center">
+            <button id="show_add" onclick="show_add()">Add New Member</button>
+            <div id="user_input" class="hide">
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" type="text" maxlength="9">
+                </div>
+                <div>
+                    <label for="wins">Wins</label>
+                    <input id="wins" type="number" maxlength="3">
+                </div>
+                <div>
+                    <label for="losses">Losses</label>
+                    <input id="losses" type="number" maxlength="3">
+                </div>
+                <button onclick="add_new_member()">Confirm</button>
+            </div>
+        </div>
+        <table id="leaderboard">
+        </table>
+
+    </div>
+
+    <div id="about" class="content">
+        <h1 class="title">Cashmere Chess Club</h1>
+        <div class="post">
+            <p class="info">The Cashmere Chess Club is open to students of all ages and skill levels. Come along on a
+                Tuesday or Thursday
+                lunchtime in M3 to sign up and play. We are supervised by Mr Quaid and playing or touching the musical
+                instruments while at Cashmere Chess Club is prohibited</p>
+        </div>
+        <div class="post">
+            <p class="info">Your club rating is calculated by your win/loss ratios and so ranks are given accordingly.
+                Kings have a ratio of 10 or higher, Queens between 8 and 10, Rooks between 6 and 8,
+                Bishops between 4 and 6, Knights between 2, and 4 and Pawns between 0 and 2</p>
+        </div>
+    </div>
+
+
+    <script src="Chess.js"></script>
+</body>
+
+</html>
